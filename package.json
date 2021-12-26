@@ -1,0 +1,37 @@
+{
+  "name": "theme-sharpen",
+  "displayName": "Sharpen",
+  "version": "0.1.0",
+  "description": "Sharpen dark theme, based on Default Dark.",
+  "scripts": {
+    "build": "node build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kkocdko/vscode-theme-sharpen.git"
+  },
+  "keywords": [
+    "vscode",
+    "theme"
+  ],
+  "publisher": "kkocdko",
+  "dependencies": {
+    "deepmerge": "^4.2.2"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "engines": {
+    "vscode": "*"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "id": "Sharpen",
+        "label": "Sharpen",
+        "uiTheme": "vs-dark",
+        "path": "./theme.dist.json"
+      }
+    ]
+  }
+}

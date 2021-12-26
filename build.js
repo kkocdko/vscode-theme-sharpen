@@ -48,11 +48,12 @@ const patch = {
     "statusBar.noFolderBackground": "#000",
     "statusBar.debuggingBackground": "#000",
     "statusBarItem.remoteBackground": "#000",
+    "statusBarItem.remoteForeground": "#fff",
     "debugToolBar.background": "#000",
     "menu.background": "#000",
     "dropdown.background": "#000",
     "input.background": "#000",
-    "button.background": "#0a4a75",
+    "button.background": "#094771",
   },
 };
 write("theme.dist.json", merge([theme, patch]));

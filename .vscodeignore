@@ -1,6 +1,5 @@
-/.vscode
-/node_modules
-/temp
+.vscode
+temp
 *.code-workspace
 *.vsix
 .gitignore

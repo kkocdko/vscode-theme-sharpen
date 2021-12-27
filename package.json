@@ -15,7 +15,7 @@
     "theme"
   ],
   "publisher": "kkocdko",
-  "dependencies": {
+  "devDependencies": {
     "deepmerge": "^4.2.2"
   },
   "categories": [

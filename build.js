@@ -11,9 +11,9 @@ const walk = (obj, fn) => {
     else if (typeof v === "object") walk(v, fn);
 };
 const walker = (c /* #rgb #rgba #rrggbb #rrggbbaa */) => {
-  const trans = (v) => Math.min(255, v * 1.1);
   const p = (i, l = 1) => {
-    const v = trans(parseInt(c.substr(i, l), 16));
+    let v = parseInt(c.substr(i, l), 16);
+    v = Math.min(16 ** l - 1, v * 1.1);
     return Math.round(v).toString(16).padStart(l, 0);
   };
   const rgb = c.length < 6 ? [p(1), p(2), p(3)] : [p(1, 2), p(3, 2), p(5, 2)];
@@ -26,8 +26,8 @@ if (!fs.existsSync("temp")) {
   fs.rmSync("temp", { recursive: true, force: true });
   fs.mkdirSync("temp", { recursive: true });
   // raw.githubusercontent.com | raw.fastgit.org
-  exec`curl -o temp/dark_plus.json https://raw.githubusercontent.com/microsoft/vscode/main/extensions/theme-defaults/themes/dark_plus.json`;
-  exec`curl -o temp/dark_vs.json https://raw.githubusercontent.com/microsoft/vscode/main/extensions/theme-defaults/themes/dark_vs.json`;
+  exec`curl -o temp/dark_plus.json https://raw.fastgit.org/microsoft/vscode/main/extensions/theme-defaults/themes/dark_plus.json`;
+  exec`curl -o temp/dark_vs.json https://raw.fastgit.org/microsoft/vscode/main/extensions/theme-defaults/themes/dark_vs.json`;
 }
 console.log("generate:", ["theme.dist.json"]);
 const theme = merge(["temp/dark_vs.json", "temp/dark_plus.json"].map(read));
@@ -48,7 +48,6 @@ const patch = {
     "statusBar.noFolderBackground": "#000",
     "statusBar.debuggingBackground": "#000",
     "statusBarItem.remoteBackground": "#000",
-    "statusBarItem.remoteForeground": "#fff",
     "debugToolBar.background": "#000",
     "menu.background": "#000",
     "dropdown.background": "#000",

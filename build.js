@@ -1,5 +1,4 @@
 "use strict";
-
 const fs = require("fs");
 const merge = require("deepmerge").all;
 const exec = ([c]) => require("child_process").execSync(c, { stdio: "ignore" });
@@ -20,14 +19,11 @@ const walker = (c /* #rgb #rgba #rrggbb #rrggbbaa */) => {
   const alpha = c.length < 6 ? c.substr(4, 1) : c.substr(7, 2);
   return "#" + rgb.join("") + alpha;
 };
-
 if (!fs.existsSync("temp")) {
   console.log("download:", ["dark_plus.json", "dark_vs.json"]);
-  fs.rmSync("temp", { recursive: true, force: true });
   fs.mkdirSync("temp", { recursive: true });
-  // raw.githubusercontent.com | raw.fastgit.org
-  exec`curl -o temp/dark_plus.json https://raw.fastgit.org/microsoft/vscode/main/extensions/theme-defaults/themes/dark_plus.json`;
-  exec`curl -o temp/dark_vs.json https://raw.fastgit.org/microsoft/vscode/main/extensions/theme-defaults/themes/dark_vs.json`;
+  exec`curl -o temp/dark_plus.json https://raw.githubusercontent.com/microsoft/vscode/main/extensions/theme-defaults/themes/dark_plus.json`;
+  exec`curl -o temp/dark_vs.json https://raw.githubusercontent.com/microsoft/vscode/main/extensions/theme-defaults/themes/dark_vs.json`;
 }
 console.log("generate:", ["theme.dist.json"]);
 const theme = merge(["temp/dark_vs.json", "temp/dark_plus.json"].map(read));
@@ -47,6 +43,7 @@ const patch = {
     "statusBar.background": "#000",
     "statusBar.noFolderBackground": "#000",
     "statusBar.debuggingBackground": "#000",
+    "statusBar.offlineBackground": "#000",
     "statusBarItem.remoteBackground": "#000",
     "debugToolBar.background": "#000",
     "menu.background": "#000",

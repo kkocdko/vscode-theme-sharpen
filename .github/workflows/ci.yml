@@ -1,0 +1,17 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: npm i vsce -g && vsce package
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: "*.vsix"

@@ -1,7 +1,7 @@
 {
   "name": "theme-sharpen",
   "displayName": "Sharpen Theme",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Sharpen dark theme, based on Default Dark.",
   "scripts": {
     "build": "node build"

@@ -1,18 +1,18 @@
 {
   "name": "theme-sharpen",
   "displayName": "Sharpen Theme",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Sharpen dark theme, based on Default Dark.",
   "scripts": {
-    "build": "node build"
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kkocdko/vscode-theme-sharpen.git"
   },
   "keywords": [
-    "vscode",
-    "theme"
+    "theme",
+    "high contrast"
   ],
   "publisher": "kkocdko",
   "devDependencies": {
@@ -22,7 +22,7 @@
     "Themes"
   ],
   "engines": {
-    "vscode": "*"
+    "vscode": "^1.56.0"
   },
   "contributes": {
     "themes": [

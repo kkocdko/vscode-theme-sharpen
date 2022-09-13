@@ -1,4 +1,5 @@
 .vscode
+.github
 temp
 *.code-workspace
 *.vsix
